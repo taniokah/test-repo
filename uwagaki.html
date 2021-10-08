@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script>
+			function test() {
+				//let frame = document.getElementById('forms');
+				//alert(frame.contentWindow.document.getElementByName('r1966b4ce2db94ffd995d6b933578e880'));
+				//alert(frame.contentWindow);
+				//alert('test');
+				// iframe要素を取得
+				var iframeElem = document.getElementsByTagName('iframe');
+				// iframeで読み込まれているページからdocumentオブジェクトを取得
+				var iframeDocument = iframeElem[0].contentDocument || iframeElem[0].contentWindow.document;
+				// iframeで読み込まれているページからp要素を取得
+				var pElem = iframeDocument.getElementsByTagName('p')[0];
+				// p要素のHTMLをアラートで表示
+				alert(pElem.outerHTML);
+			}
+		</script>
+	</head>
+	<body>
+	<p><button onclick="test();">iframe内の操作を行います。</button></p>
+	<iframe id="forms" width="600px" height="800px" src="https://forms.office.com/r/UCUCKWg1Ay">
+</body>
+</html>
